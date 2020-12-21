@@ -1,23 +1,24 @@
 package pl.edu.pjwstk.jaz.zad2;
 
-import org.springframework.stereotype.Component;
+import java.util.Collections;
+import java.util.Set;
 
-@Component
 public class User {
-    private String username;
-    private String password;
-    private String role;
+    private final String username;
+    private final String password;
+    private final Set<String> authorities;
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
 
-    public void setUsername(String username) {
+
+    public User(String username, String password, Set<String> authorities) {
         this.username = username;
+        this.password = password;
+        this.authorities = authorities;
     }
-
-    public void setRole(String role) {
-        this.role = role;
+    public User(String username, String password) {
+        this.username = username;
+        this.password = password;
+        this.authorities = Collections.emptySet();
     }
 
     public String getUsername() {
@@ -28,8 +29,8 @@ public class User {
         return password;
     }
 
-    public String getRole() {
-        return role;
+    public Set<String> getAuthorities() {
+        return authorities;
     }
 
 }

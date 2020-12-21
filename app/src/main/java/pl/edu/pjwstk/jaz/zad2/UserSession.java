@@ -7,31 +7,14 @@ import org.springframework.stereotype.Component;
 @Scope(value = "session", proxyMode = ScopedProxyMode.TARGET_CLASS)
 @Component
 public class UserSession {
-    private boolean loggedIn = false;
-    private String sessionID;
-    private String role;
-
-    public void setLoggedIn(boolean loggedIn) {
-        this.loggedIn = loggedIn;
-    }
+    private boolean isLogged = false;
 
     public boolean isLoggedIn() {
-        return loggedIn;
+
+        return isLogged;
     }
 
-    public void setSessionID(String sessionID) {
-        this.sessionID = sessionID;
-    }
-
-    public void setRole(String role) {
-        this.role = role;
-    }
-
-    public String getRole() {
-        return role;
-    }
-
-    public String getSessionID() {
-        return sessionID;
+    public void logIn() {
+        isLogged = true;
     }
 }
